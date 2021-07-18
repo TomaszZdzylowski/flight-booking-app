@@ -44,6 +44,6 @@ export class FlightsFilterComponent implements OnInit {
   }
 
   public get isMobile(): boolean {
-    return this.breakpointObserver.isMatched('(max-width: 1200px)');
+    return this.breakpointObserver.isMatched('(max-width: 768px)');
   }
 }

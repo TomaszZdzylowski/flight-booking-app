@@ -16,13 +16,32 @@ export class HeaderComponent implements OnInit {
   }
 
   private initItemsList(): void {
-    this.items = [
-      {
-        label: 'LOTY',
-      },
-      {
-        label: 'REZERWACJE',
-      }
+    this.items = [{
+      label: 'Options',
+      items: [
+        {
+          label: 'Basket',
+          icon: 'pi pi-shopping-cart'
+        },
+        {
+          label: 'User',
+          icon: 'pi pi-user',
+        }
+      ]
+    },
+    {
+      label: 'Navigate',
+      items: [
+        {
+          label: 'Flights',
+          icon: 'pi pi-send'
+        },
+        {
+          label: 'Reservations',
+          icon: 'pi pi-book'
+        }
+      ]
+    }
     ];
   }
 }
