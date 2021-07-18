@@ -1,0 +1,84 @@
+@use 'variables';
+@use 'media-queries';
+
+.flights-filter-container {
+  padding: 0.875rem;
+  background-color: gray;
+  min-height: 120px;
+
+  &__heading {
+    margin: 0.875rem 0;
+    color: variables.$light;
+  }
+}
+
+.form {
+  width: 100%;
+
+  &__search {
+    min-width: 40px;
+    margin-top: 1rem;
+    width: 100%;
+
+    @include media-queries.responsive(medium-devices) {
+      width: unset;
+      margin: 0;
+    }
+  }
+
+  @include media-queries.responsive(medium-devices) {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  width: 44vw;
+
+  @include media-queries.responsive(medium-devices) {
+    width: 22vw;
+    max-width: 200px;
+  }
+
+  &__label {
+    color: variables.$light;
+  }
+}
+
+.button {
+  &--expand {
+    width: 100%;
+  }
+}
+
+.mobile-view {
+  display: none !important;
+
+  @include media-queries.responsive(medium-devices) {
+    display: flex !important;
+  }
+}
+
+.desktop-view {
+  @include media-queries.responsive(medium-devices) {
+    display: none !important;
+  }
+}
+
+:host ::ng-deep .p-dropdown,
+:host ::ng-deep .p-calendar-w-btn {
+  width: 100%;
+  border: 1px solid variables.$primary-blue;
+  height: 36px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+:host ::ng-deep .p-dropdown-label,
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-dropdown-trigger {
+  color: variables.$primary-blue;
+  font-size: 0.75rem;
+}

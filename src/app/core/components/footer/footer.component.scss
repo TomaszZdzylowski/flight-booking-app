@@ -1,14 +1,14 @@
 @use "variables";
 
 .flight-footer {
-    height: 80px;
-    background-color: variables.$primary-blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 60px;
+  background-color: variables.$primary-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &__info {
-        color: variables.$light;
-        font-size: 0.75rem;
-    }
+  &__info {
+    color: variables.$light;
+    font-size: 0.75rem;
+  }
 }

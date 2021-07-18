@@ -1,3 +1,4 @@
+import { FlightsModule } from './modules/flights/flights.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule
+    CoreModule,
+    FlightsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

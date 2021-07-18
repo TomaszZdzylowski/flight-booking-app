@@ -1,0 +1,52 @@
+<div class="flights-filter-container flex flex-column justify-content-center">
+
+  <h3 class="flights-filter-container__heading">
+    Wyszukaj loty
+  </h3>
+
+  <form [formGroup]="flightsFormGroup" class="form flex flex-wrap justify-content-between align-content-center">
+
+    <div class="input-box">
+      <label for="cityFrom" class="input-box__label text-xs desktop-view my-2">
+        Miejsce wylotu
+      </label>
+      <p-dropdown [options]="cities" formControlName="cityFrom" optionLabel="name" inputId="cityFrom">
+      </p-dropdown>
+    </div>
+
+    <div class="input-box">
+      <label for="cityTo" class="input-box__label text-xs desktop-view  my-2">
+        Miejsce wylotu
+      </label>
+      <p-dropdown [options]="cities" formControlName="cityTo" optionLabel="name" inputId="cityTo"></p-dropdown>
+    </div>
+
+    <div class="input-box">
+      <label for="departureDate" class="input-box__label text-xs desktop-view my-2">
+        Data wylotu
+      </label>
+      <p-calendar [showTime]="true" formControlName="departureDate" hourFormat="24" dateFormat="dd-mm-yy"
+        [touchUI]="isMobile" inputId="departureDate" [style]="{'width':'100%'}" icon="pi pi-calendar" [showIcon]="true">
+      </p-calendar>
+    </div>
+
+    <div class="input-box">
+      <label for="dateOfReturnDeparture" class="input-box__label text-xs desktop-view my-2">
+        Data wylotu powrotnego
+      </label>
+      <p-calendar [showTime]="true" formControlName="dateOfReturnDeparture" hourFormat="24" dateFormat="dd-mm-yy"
+        [touchUI]="isMobile" inputId="dateOfReturnDeparture" [style]="{'width':'100%'}" icon="pi pi-calendar"
+        [showIcon]="true">
+      </p-calendar>
+    </div>
+
+    <div class="form__search desktop-view">
+      <button pButton type="button" label="szukaj" class="button button--expand"></button>
+    </div>
+
+    <div class="form__search mobile-view">
+      <button pButton type="button" icon="pi pi-search" class="button button--expand"></button>
+    </div>
+
+  </form>
+</div>
