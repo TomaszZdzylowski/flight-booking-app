@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { FlightsComponent } from './flights.component';
 
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { ButtonModule } from 'primeng/button';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     CalendarModule,

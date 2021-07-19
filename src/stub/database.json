@@ -1,0 +1,150 @@
+{
+  "flights": {
+    "availableCities": [
+      "Waraszawa",
+      "Lublin"
+    ],
+    "availableFlights": [
+      {
+        "id": 1,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-20, 12:00",
+        "returnDepartureDate": "2021-07-20, 20:00"
+      },
+      {
+        "id": 2,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-22, 20:00",
+        "returnDepartureDate": "2021-07-23, 06:00"
+      },
+      {
+        "id": 3,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-22, 06:00",
+        "returnDepartureDate": "2021-07-30, 18:00"
+      },
+      {
+        "id": 4,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-29, 18:30",
+        "returnDepartureDate": "2021-07-30, 20:00"
+      },
+      {
+        "id": 5,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 6,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 7,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 8,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 9,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 10,
+        "cityFrom": "Warszawa",
+        "cityTo": "Lublin",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 11,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 12,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 13,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 14,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 15,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 16,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 17,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 18,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 19,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      },
+      {
+        "id": 20,
+        "cityFrom": "Lublin",
+        "cityTo": "Warszawa",
+        "departureDate": "2021-07-30, 20:59",
+        "returnDepartureDate": "2021-07-30, 20:59"
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+@use 'variables';
+
+:host ::ng-deep .p-datatable-tbody {
+  > tr:nth-child(even) {
+    background-color: variables.$gray-light;
+  }
+}

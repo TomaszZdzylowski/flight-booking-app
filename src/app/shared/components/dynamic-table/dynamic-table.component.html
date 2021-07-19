@@ -1,0 +1,57 @@
+<ng-container *ngIf="isMobile; then mobile; else desktop"></ng-container>
+
+<ng-template #mobile>
+  <div class="card">
+    <p-table [columns]="cols" [value]="items" [scrollable]="true" [rows]="1" scrollHeight="260px" [virtualScroll]="true"
+      [virtualRowHeight]="30">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" class="p-3">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <ng-container *ngFor="let col of columns">
+            <td *ngIf="col.field !== 'button'" class="text-xs sm:text-sm p-1">
+              {{rowData[col.field]}}
+            </td>
+            <td *ngIf="col.field === 'button'" class="text-right p-1">
+              <button pButton type="button" icon="pi pi-arrow-circle-right" (click)="actionOnButtonClick(rowData)">
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</ng-template>
+
+<ng-template #desktop>
+  <div class="card">
+    <p-table [columns]="cols" [value]="items" [paginator]="true" [rows]="10">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <ng-container *ngFor="let col of columns">
+            <td *ngIf="col.field !== 'button'" class="text-xs sm:text-sm p-1">
+              {{rowData[col.field]}}
+            </td>
+            <td *ngIf="col.field === 'button'" class="text-right p-1">
+              <button pButton type="button" icon="pi pi-arrow-circle-right" (click)="actionOnButtonClick(rowData)">
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+
+      </ng-template>
+    </p-table>
+  </div>
+</ng-template>
