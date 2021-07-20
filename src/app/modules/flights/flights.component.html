@@ -1,6 +1,9 @@
-<main class="flights-main" *ngIf="flights$ | async as flights">
-  <app-flights-filter></app-flights-filter>
-  <app-dynamic-table [cols]="cols" [items]="flights?.availableFlights" (newButtonEvent)="navigate($event)">
-  </app-dynamic-table>
-
+<main class="flights-main md:my-3" *ngIf="flights$ | async as flights">
+  <div class="md:mb-3">
+    <app-flights-filter></app-flights-filter>
+  </div>
+  <div class="flights-main__table p-3">
+    <app-dynamic-table [cols]="cols" [items]="flights?.availableFlights" (newButtonEvent)="navigate($event)">
+    </app-dynamic-table>
+  </div>
 </main>

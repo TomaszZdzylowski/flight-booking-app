@@ -3,32 +3,36 @@
 
 .flights-filter-container {
   padding: 0.75rem;
-  background-color: gray;
   min-height: 120px;
+  background-color: rgba(variables.$light, 0.9);
 
   &__heading {
     margin: 0.875rem 0;
-    color: variables.$light;
   }
 }
 
 .form {
   width: 100%;
 
-  &__search {
-    min-width: 40px;
-    margin-top: 1rem;
-    width: 100%;
-
-    @include media-queries.responsive(medium-devices) {
-      width: unset;
-      margin: 0;
-    }
-  }
-
   @include media-queries.responsive(medium-devices) {
     flex-direction: row !important;
     justify-content: space-between !important;
+  }
+}
+
+.searchbox {
+  background-color: variables.$secondary-blue;
+  min-width: 40px;
+  margin-top: 1rem;
+  width: 100%;
+
+  @include media-queries.responsive(medium-devices) {
+    width: unset;
+    margin: 0;
+  }
+
+  &__button {
+    background-color: variables.$secondary-blue;
   }
 }
 
@@ -40,10 +44,6 @@
   @include media-queries.responsive(medium-devices) {
     width: 22vw;
     max-width: 200px;
-  }
-
-  &__label {
-    color: variables.$light;
   }
 }
 

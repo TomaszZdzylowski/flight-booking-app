@@ -8,6 +8,7 @@
 
     @include media-queries.responsive(medium-devices) {
         flex-direction: row;
+        margin: 1rem 0;
     }
 
     &__container {

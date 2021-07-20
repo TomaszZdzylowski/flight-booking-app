@@ -5,14 +5,24 @@
   width: 100%;
 
   @include media-queries.responsive(medium-devices) {
-    //margin-top: 2rem;
+    background-image: url("../assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
   }
 
   &__sub-container {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     max-width: 940px;
     margin: auto;
+    height: 100%;
+
+    @include media-queries.responsive(medium-devices) {
+      height: auto;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
   }
 }

@@ -6,7 +6,7 @@
       [virtualRowHeight]="30">
       <ng-template pTemplate="header" let-columns>
         <tr>
-          <th *ngFor="let col of columns" class="p-3">
+          <th *ngFor="let col of columns" class="p-3 px-2">
             {{col.header}}
           </th>
         </tr>
@@ -14,11 +14,12 @@
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <ng-container *ngFor="let col of columns">
-            <td *ngIf="col.field !== 'button'" class="text-xs sm:text-sm p-1">
+            <td *ngIf="col.field !== 'button'" class="text-xs sm:text-sm p-1 px-2">
               {{rowData[col.field]}}
             </td>
-            <td *ngIf="col.field === 'button'" class="text-right p-1">
-              <button pButton type="button" icon="pi pi-arrow-circle-right" (click)="actionOnButtonClick(rowData)">
+            <td *ngIf="col.field === 'button'" class="text-right p-1 px-2">
+              <button pButton type="button" icon="pi pi-arrow-circle-right" class="p-button-link"
+                (click)="actionOnButtonClick(rowData)">
               </button>
             </td>
           </ng-container>
@@ -33,7 +34,7 @@
     <p-table [columns]="cols" [value]="items" [paginator]="true" [rows]="10">
       <ng-template pTemplate="header" let-columns>
         <tr>
-          <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3">
+          <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3 px-2">
             {{col.header}}
           </th>
         </tr>
@@ -41,11 +42,12 @@
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <ng-container *ngFor="let col of columns">
-            <td *ngIf="col.field !== 'button'" class="text-xs sm:text-sm p-1">
+            <td *ngIf="col.field !== 'button'" class="text-xs sm:text-sm p-1 px-2">
               {{rowData[col.field]}}
             </td>
-            <td *ngIf="col.field === 'button'" class="text-right p-1">
-              <button pButton type="button" icon="pi pi-arrow-circle-right" (click)="actionOnButtonClick(rowData)">
+            <td *ngIf="col.field === 'button'" class="text-right p-1 px-2">
+              <button pButton type="button" icon="pi pi-arrow-circle-right" class="p-button-link"
+                (click)="actionOnButtonClick(rowData)">
               </button>
             </td>
           </ng-container>
