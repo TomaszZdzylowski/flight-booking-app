@@ -1,0 +1,17 @@
+@use 'media-queries';
+
+.reservation-form {
+    &__wrapper {
+        gap: 8px;
+    }
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__label {
+        font-weight: 400;
+    }
+}

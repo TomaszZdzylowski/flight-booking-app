@@ -7,7 +7,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 @Component({
   selector: 'app-flights-filter',
   templateUrl: './flights-filter.component.html',
-  styleUrls: ['./flights-filter.component.scss']
+  styleUrls: ['./flights-filter.component.scss', '../../../../../common-styles/shared.scss']
 })
 export class FlightsFilterComponent implements OnInit {
   public cities: City[] = [];

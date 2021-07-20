@@ -1,9 +1,9 @@
 import { FlightsComponent } from './modules/flights/flights.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ReservationsComponent } from './modules/reservations/reservations.component';
 
 const routes: Routes = [
-
   {
     path: '',
     redirectTo: '/flights',
@@ -12,8 +12,11 @@ const routes: Routes = [
   {
     path: 'flights',
     component: FlightsComponent
-  }
-
+  },
+  {
+    path: 'reservation',
+    component: ReservationsComponent
+  },
 ];
 
 @NgModule({

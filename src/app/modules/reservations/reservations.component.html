@@ -1,0 +1,8 @@
+<main class="reservation-main flex my-4" *ngIf="flights$ | async as flights">
+    <div class="reservation-main__container w-full">
+        <app-reservation-form></app-reservation-form>
+    </div>
+    <div class="reservation-main__container w-full">
+        <app-dynamic-table [cols]="cols" [items]="flights?.availableFlights"></app-dynamic-table>
+    </div>
+</main>

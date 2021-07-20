@@ -1,0 +1,27 @@
+@use 'variables';
+@use 'media-queries';
+
+:host ::ng-deep {
+    .p-inputtext,
+    .p-dropdown,
+    .p-calendar,
+    .p-inputnumber {
+        width: 100%;
+        height: 36px;
+        color: variables.$primary-blue;
+        font-size: 0.65rem;
+
+        @include media-queries.responsive(small-devices) {
+            font-size: 0.75rem;
+        }
+    }
+
+    .p-inputtext:not(span),
+    .p-dropdown {
+        border: 1px solid variables.$primary-blue;
+    }
+
+    .p-dropdown-trigger {
+        color: variables.$primary-blue;
+    }
+}

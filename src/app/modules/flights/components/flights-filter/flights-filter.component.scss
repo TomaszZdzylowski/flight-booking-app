@@ -66,23 +66,3 @@
     display: none !important;
   }
 }
-
-:host ::ng-deep .p-dropdown,
-:host ::ng-deep .p-calendar-w-btn {
-  width: 100%;
-  border: 1px solid variables.$primary-blue;
-  height: 36px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-:host ::ng-deep .p-dropdown-label,
-:host ::ng-deep .p-inputtext,
-:host ::ng-deep .p-dropdown-trigger {
-  color: variables.$primary-blue;
-  font-size: 0.65rem;
-
-  @include media-queries.responsive(small-devices) {
-    font-size: 0.75rem;
-  }
-}
