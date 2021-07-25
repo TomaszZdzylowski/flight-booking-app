@@ -9,13 +9,13 @@
           List of flights
         </div>
       </ng-template>
-      <!-- <ng-template pTemplate="header" let-columns>
+      <ng-template pTemplate="header" let-columns *ngIf="theadVisible">
         <tr>
           <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3 px-2">
             {{col.header}}
           </th>
         </tr>
-      </ng-template> -->
+      </ng-template>
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <ng-container *ngFor="let col of columns">
@@ -42,13 +42,13 @@
           List of flights
         </div>
       </ng-template>
-      <!-- <ng-template pTemplate="header" let-columns>
+      <ng-template pTemplate="header" let-columns *ngIf="theadVisible">
         <tr>
           <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3 px-2">
             {{col.header}}
           </th>
         </tr>
-      </ng-template> -->
+      </ng-template>
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <ng-container *ngFor="let col of columns">

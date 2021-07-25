@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Flight } from 'src/app/shared/models/flight';
 import { flightTableColumns } from '../../shared/mocks/flight-table.mock';
+import { City } from 'src/app/shared/models/city';
+import { TableColumn } from 'src/app/shared/models/table';
 
 @Component({
   selector: 'app-flights',
@@ -12,12 +14,10 @@ import { flightTableColumns } from '../../shared/mocks/flight-table.mock';
   styleUrls: ['./flights.component.scss']
 })
 export class FlightsComponent implements OnInit {
-  public cols: any[] = flightTableColumns;
-  public items: any[] = [];
+  public cols: Array<TableColumn> = flightTableColumns;
 
-  public cities$: Observable<any> = this.flightsService.getCities();
-  public flights$: Observable<any> = this.flightsService.flightsState$;
-
+  public cities$: Observable<Array<City>> = this.flightsService.getCities();
+  public flights$: Observable<Array<Flight>> = this.flightsService.flightsState$;
 
   constructor(
     private flightsService: FlightsService,

@@ -38,9 +38,10 @@
       <label for="returnDepartureDate" class="input-box__label text-xs sm:text-sm desktop-view my-2">
         Date of return departure
       </label>
-      <p-calendar [showTime]="true" formControlName="returnDepartureDate" hourFormat="24" dateFormat="yy-mm-dd"
-        dataType="string" [touchUI]="isMobile" inputId="returnDepartureDate" appendTo="body" icon="pi pi-calendar"
-        [showIcon]="true" [ngClass]="{'ng-invalid ng-dirty': isDepartureDateGreater}">
+      <p-calendar [showTime]="true" formControlName="returnDepartureDate" placeholder="Return departure date"
+        hourFormat="24" dateFormat="yy-mm-dd" dataType="string" [touchUI]="isMobile" inputId="returnDepartureDate"
+        appendTo="body" icon="pi pi-calendar" [showIcon]="true"
+        [ngClass]="{'ng-invalid ng-dirty': isDepartureDateGreater}">
       </p-calendar>
     </div>
 

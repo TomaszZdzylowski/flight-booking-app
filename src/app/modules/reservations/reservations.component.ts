@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Flight } from 'src/app/shared/models/flight';
 import { FlightsService } from 'src/app/shared/services/flights.service';
 import { flightTableColumns } from 'src/app/shared/mocks/flight-table.mock';
+import { TableColumn } from 'src/app/shared/models/table';
 
 @Component({
   selector: 'app-reservations',
@@ -12,8 +13,7 @@ import { flightTableColumns } from 'src/app/shared/mocks/flight-table.mock';
   styleUrls: ['./reservations.component.scss']
 })
 export class ReservationsComponent implements OnInit {
-  public cols: any[] = flightTableColumns;
-  public items: any[] = [];
+  public cols: Array<TableColumn> = flightTableColumns;
 
   public flights$: Observable<Array<Flight>> = this.flightsService.getFlights();
 

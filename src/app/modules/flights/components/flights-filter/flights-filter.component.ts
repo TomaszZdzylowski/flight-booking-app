@@ -4,6 +4,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { FlightsService } from '../../../../shared/services/flights.service';
 import { UtilsService } from '../../../../shared/services/utils.service';
+
 import { City } from '../../../../shared/models/city';
 import { Flight, FlightFilters } from '../../../../shared/models/flight';
 
@@ -16,7 +17,7 @@ import { Flight, FlightFilters } from '../../../../shared/models/flight';
 export class FlightsFilterComponent implements OnInit {
   @Input() public cities: Array<City> = [];
 
-  public selectedCity: City = {} as City;
+  public selectedCity: City | undefined;
   public flightsFormGroup: FormGroup = this.fb.group({});
 
   constructor(

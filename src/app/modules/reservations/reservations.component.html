@@ -3,6 +3,7 @@
         <app-reservation-form></app-reservation-form>
     </div>
     <div class="reservation-main__container w-full">
-        <app-dynamic-table [cols]="cols" [items]="flights" (newButtonEvent)="navigate($event)"></app-dynamic-table>
+        <app-dynamic-table [cols]="cols" [items]="flights" [theadVisible]="false" (newButtonEvent)="navigate($event)">
+        </app-dynamic-table>
     </div>
 </main>

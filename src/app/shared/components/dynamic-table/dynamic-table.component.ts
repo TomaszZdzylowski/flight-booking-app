@@ -9,13 +9,15 @@ import { Component, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./dynamic-table.component.scss']
 })
 export class DynamicTableComponent implements OnInit {
-
-  @Input() public cols: any[] = [];
-  @Input() public items: any[] = [];
+  @Input() public cols: Array<any> = [];
+  @Input() public items: Array<any> = [];
+  @Input() public theadVisible: boolean = true;
 
   @Output() public newButtonEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(
+    private breakpointObserver: BreakpointObserver
+  ) { }
 
   ngOnInit(): void { }
 

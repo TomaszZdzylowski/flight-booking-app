@@ -2,7 +2,7 @@ export interface FlightFilters {
     cityFrom: string,
     cityTo: string,
     departureDate: string,
-    returnDepartureDate?: string
+    returnDepartureDate: string
 }
 
 export interface Flight extends FlightFilters {

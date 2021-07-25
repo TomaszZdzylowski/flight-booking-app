@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Observable } from 'rxjs';
-import { IndexDbService } from 'src/app/shared/services/index-db.service';
 
+import { IndexDbService } from 'src/app/shared/services/index-db.service';
+import { menu } from '../../mocks/menu.mock';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public items: MenuItem[] = [];
+  public items: MenuItem[] = menu;
   public count$: Observable<string> = this.indexDBService.itemsCountState$;
-
 
   constructor(
     private indexDBService: IndexDbService
@@ -19,44 +19,12 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.initItemsList();
     this.getAddedItemsCount();
   }
 
-  private getAddedItemsCount() {
+  private getAddedItemsCount(): void {
     this.indexDBService.getAllItemsCount('basketList')
       .subscribe();
-  }
-
-  private initItemsList(): void {
-    this.items = [{
-      label: 'Options',
-      items: [
-        {
-          label: 'Basket',
-          icon: 'pi pi-shopping-cart'
-        },
-        {
-          label: 'Jan Kowalski',
-          icon: 'pi pi-user',
-        }
-      ]
-    },
-    {
-      label: 'Navigate',
-      items: [
-        {
-          label: 'Flights',
-          icon: 'pi pi-send',
-          routerLink: ['/flights']
-        },
-        {
-          label: 'Reservations',
-          icon: 'pi pi-book'
-        }
-      ]
-    }
-    ];
   }
 }
 
