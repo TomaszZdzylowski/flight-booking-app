@@ -9,6 +9,11 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReservationsModule } from './modules/reservations/reservations.module';
 
+import { NgxIndexedDBModule } from 'ngx-indexed-db';
+import { dbConfig } from './configs/index-db.config';
+
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,6 +22,7 @@ import { ReservationsModule } from './modules/reservations/reservations.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxIndexedDBModule.forRoot(dbConfig),
     CoreModule,
     SharedModule,
     FlightsModule,

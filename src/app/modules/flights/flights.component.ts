@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Flight } from 'src/app/shared/models/flight';
-import { flightTableColumns } from './mocks/flight-table.mock';
+import { flightTableColumns } from '../../shared/mocks/flight-table.mock';
 
 @Component({
   selector: 'app-flights',
@@ -27,7 +27,6 @@ export class FlightsComponent implements OnInit {
   ngOnInit(): void {
     this.getFlights();
   }
-
 
   private getFlights(): void {
     this.flightsService.getFlights()

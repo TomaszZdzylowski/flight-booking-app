@@ -10,15 +10,15 @@
   <div class="flex justify-content-between w-full desktop-view">
 
     <div>
-      <button pButton type="button" label="Flights" class="button button--large mr-2" routerLink="flights"></button>
-      <button pButton type="button" label="Reservation" class="button button--large"
-        routerLink="reservation/0"></button>
+      <button pButton type="button" label="Flights" class="button button--large mr-2" routerLink="flights"
+        routerLinkActive="p-button-link"></button>
+      <button pButton type="button" label="Reservation" class="button button--large"></button>
     </div>
 
     <div class="flex">
 
-      <button pButton type="button" class="button button--small mr-2">
-        <i class="pi pi-shopping-cart" pBadge value="2" severity="danger"></i>
+      <button pButton type="button" class="button button--small mr-2" *ngIf="count$ | async as count">
+        <i class="pi pi-shopping-cart" pBadge [value]="count" severity="danger"></i>
       </button>
       <button pButton type="button" label="Jan Kowalski" icon="pi pi-user" iconPos="right" class="button button--large">
       </button>

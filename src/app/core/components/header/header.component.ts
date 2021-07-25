@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Observable } from 'rxjs';
+import { IndexDbService } from 'src/app/shared/services/index-db.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +10,22 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   public items: MenuItem[] = [];
+  public count$: Observable<string> = this.indexDBService.itemsCountState$;
 
-  constructor() { }
+
+  constructor(
+    private indexDBService: IndexDbService
+  ) { }
+
 
   ngOnInit(): void {
     this.initItemsList();
+    this.getAddedItemsCount();
+  }
+
+  private getAddedItemsCount() {
+    this.indexDBService.getAllItemsCount('basketList')
+      .subscribe();
   }
 
   private initItemsList(): void {
@@ -24,7 +37,7 @@ export class HeaderComponent implements OnInit {
           icon: 'pi pi-shopping-cart'
         },
         {
-          label: 'User',
+          label: 'Jan Kowalski',
           icon: 'pi pi-user',
         }
       ]
@@ -34,7 +47,8 @@ export class HeaderComponent implements OnInit {
       items: [
         {
           label: 'Flights',
-          icon: 'pi pi-send'
+          icon: 'pi pi-send',
+          routerLink: ['/flights']
         },
         {
           label: 'Reservations',

@@ -1,17 +1,21 @@
 <div class="reservation-container">
-    <header class="reservation-container__header flex justify-content-between mb-3">
+    <header class="reservation-header flex justify-content-between mb-3">
         <h3>
-            Rezerwacja lotu
+            Flight booking
         </h3>
-        <span>
-            WAW -> LUB
+        <span class="reservation-header__line">
+            <strong>
+                {{choosenCityFrom[0]?.name | slice:0:3 | uppercase}}
+                <i class="reservation-header__icon pi pi-sort-alt"></i>
+                {{choosenCityTo[0]?.name | slice:0:3|uppercase}}
+            </strong>
         </span>
     </header>
     <form [formGroup]="reservationForm" class="reservation-form">
         <div class="reservation-form__wrapper flex justify-content-between">
             <div class="input-box">
                 <label for="firstName" class="input-box__label text-xs sm:text-sm my-2">
-                    first name
+                    First name
                 </label>
                 <input type="text" id="firstName" pInputText formControlName="firstName"
                     [ngClass]="{'ng-invalid ng-dirty':firstName?.invalid && (firstName?.dirty || firstName?.touched)}"
@@ -19,7 +23,7 @@
             </div>
             <div class="input-box">
                 <label for="lastName" class="input-box__label text-xs sm:text-sm my-2">
-                    last name
+                    Last name
                 </label>
                 <input type="text" id="firstName" pInputText formControlName="lastName"
                     [ngClass]="{'ng-invalid ng-dirty':lastName?.invalid && (lastName?.dirty || lastName?.touched)}"
@@ -36,10 +40,11 @@
                 </p-inputNumber>
             </div>
             <div class="input-box">
-                <label for="class" class="input-box__label text-xs sm:text-sm my-2">
+                <label for="flightClass" class="input-box__label text-xs sm:text-sm my-2">
                     Class
                 </label>
-                <p-dropdown [options]="flightClasses" formControlName="class" optionLabel="name" inputId="class">
+                <p-dropdown [options]="flightClasses" formControlName="flightClass" optionLabel="name"
+                    inputId="flightClass">
                 </p-dropdown>
             </div>
         </div>

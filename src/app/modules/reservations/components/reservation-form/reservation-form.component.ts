@@ -1,12 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
-import { FlightClasses } from 'src/app/shared/enums/flight-classes';
-import { City } from 'src/app/shared/models/City';
+import { switchMap } from 'rxjs/operators';
 
-import { Flight } from 'src/app/shared/models/Flight';
+import { City } from 'src/app/shared/models/city';
+import { Flight, FlightReservation } from 'src/app/shared/models/flight';
+import { flightClasses } from 'src/app/modules/reservations/mocks/flight-classes.mock';
+
 import { FlightsService } from 'src/app/shared/services/flights.service';
+import { IndexDbService } from 'src/app/shared/services/index-db.service';
+
+
+
 
 @Component({
   selector: 'app-reservation-form',
@@ -14,22 +21,18 @@ import { FlightsService } from 'src/app/shared/services/flights.service';
   styleUrls: ['./reservation-form.component.scss', '../../../../../common-styles/shared.scss']
 })
 export class ReservationFormComponent implements OnInit, OnDestroy {
-  public subscription: Subscription = new Subscription()
+  public subscription: Subscription = new Subscription();
   public reservationForm: FormGroup = this.fb.group({});
 
-  public flightClasses: Array<any> = [
-    { name: FlightClasses.Business },
-    { name: FlightClasses.Economic },
-    { name: FlightClasses.EconomicalPremium },
-    { name: FlightClasses.FirstClass }
-  ]
-
+  public flightClasses: Array<any> = flightClasses;
   public choosenCityFrom: Array<City> = [];
   public choosenCityTo: Array<City> = [];
 
   constructor(
+    private fb: FormBuilder,
     private flightsService: FlightsService,
-    private fb: FormBuilder
+    private indexDBService: IndexDbService,
+    private router: Router
   ) { }
 
 
@@ -47,10 +50,10 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
       lastName: ['', [
         Validators.required
       ]],
-      numberOfPeople: ['', [
+      numberOfPeople: [1, [
         Validators.required
       ]],
-      class: [''],
+      flightClass: [this.flightClasses[0].name],
       cityFrom: [
         { value: '', disabled: true }
       ],
@@ -74,14 +77,10 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
   }
 
   private setControlValues({ cityFrom = '', cityTo = '', departureDate = '', returnDepartureDate = '' }: Flight): void {
-    this.choosenCityFrom.push({ name: cityFrom });
-    this.choosenCityTo.push({ name: cityTo });
+    this.choosenCityFrom = [{ name: cityFrom }];
+    this.choosenCityTo = [{ name: cityTo }];
 
-    this.reservationForm.setValue({
-      firstName: '',
-      lastName: '',
-      numberOfPeople: 1,
-      class: this.flightClasses,
+    this.reservationForm.patchValue({
       cityFrom,
       cityTo,
       departureDate: new Date(departureDate),
@@ -90,7 +89,27 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
   }
 
   public AddToBasket(): void {
+    const reservationData: FlightReservation = {
+      firstName: this.firstName?.value,
+      lastName: this.lastName?.value,
+      flightClass: this.flightClass?.value,
+      numberOfPeople: this.numberOfPeople?.value,
+      cityFrom: this.choosenCityFrom[0].name,
+      cityTo: this.choosenCityTo[0].name,
+      departureDate: this.departureDate?.value,
+      returnDepartureDate: this.returnDepartureDate?.value
+    }
 
+    this.indexDBService.addItem('basketList', reservationData)
+      .pipe(
+        switchMap(() => {
+          return this.indexDBService.getAllItemsCount('basketList');
+        })
+      )
+      .subscribe(() => {
+        this.reservationForm.reset();
+        this.router.navigate(['/flights']);
+      });
   }
 
   public get firstName(): AbstractControl | null {
@@ -101,7 +120,23 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
     return this.reservationForm.get('lastName');
   }
 
+  public get numberOfPeople(): AbstractControl | null {
+    return this.reservationForm.get('numberOfPeople');
+  }
+
+  public get flightClass(): AbstractControl | null {
+    return this.reservationForm.get('flightClass');
+  }
+
+  public get departureDate(): AbstractControl | null {
+    return this.reservationForm.get('departureDate');
+  }
+
+  public get returnDepartureDate(): AbstractControl | null {
+    return this.reservationForm.get('returnDepartureDate');
+  }
+
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
+    this.subscription.unsubscribe();
   }
 }

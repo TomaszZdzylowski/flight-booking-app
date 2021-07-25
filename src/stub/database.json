@@ -149,6 +149,14 @@
     {
       "name": "Lublin",
       "code": "LUB"
+    },
+    {
+      "name": "Poznań",
+      "code": "POZ"
+    },
+    {
+      "name": "Gdańsk",
+      "code": "GD"
     }
   ]
 }

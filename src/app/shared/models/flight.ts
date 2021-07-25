@@ -10,9 +10,8 @@ export interface Flight extends FlightFilters {
 }
 
 export interface FlightReservation extends FlightFilters {
-    id: number;
     firstName: string;
     lastName: string,
     numberOfPeople: number;
-    class: string;
+    flightClass: string;
 }

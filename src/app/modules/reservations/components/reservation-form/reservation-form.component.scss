@@ -1,5 +1,15 @@
+@use 'variables';
 @use 'media-queries';
 
+.reservation-header {
+    &__line {
+        color: variables.$secondary-blue;
+    }
+
+    &__icon {
+        transform: rotate(90deg);
+    }
+}
 .reservation-form {
     &__wrapper {
         gap: 8px;

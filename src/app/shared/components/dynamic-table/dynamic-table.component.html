@@ -3,7 +3,7 @@
 <ng-template #mobile>
   <div class="card">
     <p-table [columns]="cols" [value]="items" [scrollable]="true" [rows]="1" scrollHeight="260px" [virtualScroll]="true"
-      [virtualRowHeight]="30">
+      [virtualRowHeight]="30" [rowHover]="true">
       <ng-template pTemplate="caption">
         <div class="table-header">
           List of flights
@@ -36,7 +36,7 @@
 
 <ng-template #desktop>
   <div class="card">
-    <p-table [columns]="cols" [value]="items" [paginator]="true" [rows]="10">
+    <p-table [columns]="cols" [value]="items" [paginator]="true" [rows]="10" [rowHover]="true">
       <ng-template pTemplate="caption">
         <div class="table-header">
           List of flights
