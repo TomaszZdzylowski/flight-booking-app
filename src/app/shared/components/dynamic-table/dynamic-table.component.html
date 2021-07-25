@@ -4,13 +4,18 @@
   <div class="card">
     <p-table [columns]="cols" [value]="items" [scrollable]="true" [rows]="1" scrollHeight="260px" [virtualScroll]="true"
       [virtualRowHeight]="30">
-      <ng-template pTemplate="header" let-columns>
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+          List of flights
+        </div>
+      </ng-template>
+      <!-- <ng-template pTemplate="header" let-columns>
         <tr>
-          <th *ngFor="let col of columns" class="p-3 px-2">
+          <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3 px-2">
             {{col.header}}
           </th>
         </tr>
-      </ng-template>
+      </ng-template> -->
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <ng-container *ngFor="let col of columns">
@@ -32,13 +37,18 @@
 <ng-template #desktop>
   <div class="card">
     <p-table [columns]="cols" [value]="items" [paginator]="true" [rows]="10">
-      <ng-template pTemplate="header" let-columns>
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+          List of flights
+        </div>
+      </ng-template>
+      <!-- <ng-template pTemplate="header" let-columns>
         <tr>
           <th *ngFor="let col of columns" class="text-xs sm:text-sm p-3 px-2">
             {{col.header}}
           </th>
         </tr>
-      </ng-template>
+      </ng-template> -->
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <ng-container *ngFor="let col of columns">

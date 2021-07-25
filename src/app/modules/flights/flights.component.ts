@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Flight } from 'src/app/shared/models/flight';
+import { flightTableColumns } from './mocks/flight-table.mock';
 
 @Component({
   selector: 'app-flights',
@@ -10,11 +12,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./flights.component.scss']
 })
 export class FlightsComponent implements OnInit {
-
-  public cols: any[] = [];
+  public cols: any[] = flightTableColumns;
   public items: any[] = [];
 
-  public flights$: Observable<any> = this.flightsService.getFlights();
+  public cities$: Observable<any> = this.flightsService.getCities();
+  public flights$: Observable<any> = this.flightsService.flightsState$;
 
 
   constructor(
@@ -23,19 +25,23 @@ export class FlightsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.setColumns();
+    this.getFlights();
   }
 
-  private setColumns(): void {
-    this.cols = [
-      { field: 'cityFrom', header: 'place of departure' },
-      { field: 'cityTo', header: 'place of arrival' },
-      { field: 'departureDate', header: 'departure date' },
-      { field: 'button' }
-    ];
+
+  private getFlights(): void {
+    this.flightsService.getFlights()
+      .subscribe((flights: Array<Flight>) => {
+        this.flightsService.flights.next(flights);
+      });
   }
 
-  public navigate(event: Event): void {
-    console.log(event);
+  public navigate(flight: Flight): void {
+    this.sendData(flight);
+    this.router.navigate([`reservation/${flight.id}`])
+  }
+
+  private sendData(flight: Flight): void {
+    this.flightsService.flight.next(flight);
   }
 }

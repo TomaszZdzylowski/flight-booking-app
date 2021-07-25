@@ -1,7 +1,13 @@
 @use 'variables';
 
-:host ::ng-deep .p-datatable-tbody {
-  > tr:nth-child(even) {
-    background-color: variables.$gray-light;
+:host ::ng-deep {
+  .p-datatable-tbody {
+    > tr:nth-child(even) {
+      background-color: variables.$gray-light;
+    }
+  }
+
+  .p-datatable-header {
+    padding: 1rem 0.5rem;
   }
 }

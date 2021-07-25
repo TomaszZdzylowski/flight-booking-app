@@ -7,33 +7,40 @@
             WAW -> LUB
         </span>
     </header>
-    <form class="reservation-form">
+    <form [formGroup]="reservationForm" class="reservation-form">
         <div class="reservation-form__wrapper flex justify-content-between">
             <div class="input-box">
                 <label for="firstName" class="input-box__label text-xs sm:text-sm my-2">
                     first name
                 </label>
-                <input type="text" id="firstName" pInputText />
+                <input type="text" id="firstName" pInputText formControlName="firstName"
+                    [ngClass]="{'ng-invalid ng-dirty':firstName?.invalid && (firstName?.dirty || firstName?.touched)}"
+                    placeholder="Enter name" />
             </div>
             <div class="input-box">
                 <label for="lastName" class="input-box__label text-xs sm:text-sm my-2">
                     last name
                 </label>
-                <input type="text" id="firstName" pInputText />
+                <input type="text" id="firstName" pInputText formControlName="lastName"
+                    [ngClass]="{'ng-invalid ng-dirty':lastName?.invalid && (lastName?.dirty || lastName?.touched)}"
+                    placeholder="Enter last name" />
             </div>
         </div>
         <div class="reservation-form__wrapper flex justify-content-between">
             <div class="input-box">
-                <label for="numerOfPeople" class="input-box__label text-xs sm:text-sm my-2">
+                <label for="numberOfPeople" class="input-box__label text-xs sm:text-sm my-2">
                     Number of people
                 </label>
-                <p-inputNumber [min]="1" [max]="100" mode="decimal"></p-inputNumber>
+                <p-inputNumber [min]="1" [max]="100" id="numberOfPeople" mode="decimal" formControlName="numberOfPeople"
+                    placeholder="choose the number of people">
+                </p-inputNumber>
             </div>
             <div class="input-box">
                 <label for="class" class="input-box__label text-xs sm:text-sm my-2">
                     Class
                 </label>
-                <p-dropdown [options]="[]" formControlName="class" optionLabel="name" inputId="class"></p-dropdown>
+                <p-dropdown [options]="flightClasses" formControlName="class" optionLabel="name" inputId="class">
+                </p-dropdown>
             </div>
         </div>
         <div class="reservation-form__wrapper flex justify-content-between">
@@ -41,16 +48,17 @@
                 <label for="departureDate" class="input-box__label text-xs sm:text-sm my-2">
                     Departure date
                 </label>
-                <p-calendar [showTime]="true" formControlName="departureDate" hourFormat="24" dateFormat="dd-mm-yy"
-                    inputId="departureDate" appendTo="body" icon="pi pi-calendar" [showIcon]="true">
+                <p-calendar [showTime]="true" formControlName="departureDate" hourFormat="24" dateFormat="yy-mm-dd"
+                    dataType="string" inputId="departureDate" appendTo="body" icon="pi pi-calendar" [showIcon]="true">
                 </p-calendar>
             </div>
             <div class="input-box">
-                <label for="departureDate" class="input-box__label text-xs sm:text-sm my-2">
+                <label for="returnDepartureDate" class="input-box__label text-xs sm:text-sm my-2">
                     Departure date
                 </label>
-                <p-calendar [showTime]="true" formControlName="departureDate" hourFormat="24" dateFormat="dd-mm-yy"
-                    inputId="departureDate" appendTo="body" icon="pi pi-calendar" [showIcon]="true">
+                <p-calendar [showTime]="true" formControlName="returnDepartureDate" hourFormat="24"
+                    dateFormat="yy-mm-dd" dataType="string" inputId="returnDepartureDate" appendTo="body"
+                    icon="pi pi-calendar" [showIcon]="true">
                 </p-calendar>
             </div>
         </div>
@@ -60,7 +68,8 @@
                 <label for="cityFrom" class="input-box__label text-xs sm:text-sm my-2">
                     Place of departure
                 </label>
-                <p-dropdown [options]="[]" formControlName="cityFrom" optionLabel="name" inputId="cityFrom">
+                <p-dropdown [options]="choosenCityFrom" formControlName="cityFrom" optionLabel="name"
+                    inputId="cityFrom">
                 </p-dropdown>
             </div>
 
@@ -68,11 +77,13 @@
                 <label for="cityTo" class="input-box__label text-xs sm:text-sm my-2">
                     Place of arrival
                 </label>
-                <p-dropdown [options]="[]" formControlName="cityTo" optionLabel="name" inputId="cityTo"></p-dropdown>
+                <p-dropdown [options]="choosenCityTo" formControlName="cityTo" optionLabel="name" inputId="cityTo">
+                </p-dropdown>
             </div>
         </div>
         <div class="reservation-form__wrapper flex justify-content-center mt-3">
-            <button pButton type="button" label="Add to basket"></button>
+            <button pButton type="button" label="Add to basket" [disabled]="reservationForm?.invalid"
+                (click)="AddToBasket()"></button>
         </div>
 
     </form>

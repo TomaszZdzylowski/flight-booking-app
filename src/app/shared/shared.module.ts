@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 
 
-
 @NgModule({
   declarations: [
     DynamicTableComponent

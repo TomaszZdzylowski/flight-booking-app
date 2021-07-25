@@ -1,150 +1,154 @@
 {
-  "flights": {
-    "availableCities": [
-      "Waraszawa",
-      "Lublin"
-    ],
-    "availableFlights": [
-      {
-        "id": 1,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-20, 12:00",
-        "returnDepartureDate": "2021-07-20, 20:00"
-      },
-      {
-        "id": 2,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-22, 20:00",
-        "returnDepartureDate": "2021-07-23, 06:00"
-      },
-      {
-        "id": 3,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-22, 06:00",
-        "returnDepartureDate": "2021-07-30, 18:00"
-      },
-      {
-        "id": 4,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-29, 18:30",
-        "returnDepartureDate": "2021-07-30, 20:00"
-      },
-      {
-        "id": 5,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 6,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 7,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 8,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 9,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 10,
-        "cityFrom": "Warszawa",
-        "cityTo": "Lublin",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 11,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 12,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 13,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 14,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 15,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 16,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 17,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 18,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 19,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      },
-      {
-        "id": 20,
-        "cityFrom": "Lublin",
-        "cityTo": "Warszawa",
-        "departureDate": "2021-07-30, 20:59",
-        "returnDepartureDate": "2021-07-30, 20:59"
-      }
-    ]
-  }
+  "flights": [
+    {
+      "id": 1,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-07-20 11:20",
+      "returnDepartureDate": "2021-07-20 22:08"
+    },
+    {
+      "id": 2,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-07-22 11:20",
+      "returnDepartureDate": "2021-07-23 22:08"
+    },
+    {
+      "id": 3,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-07-22 06:00",
+      "returnDepartureDate": "2021-07-30 18:00"
+    },
+    {
+      "id": 4,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-07-29 06:00",
+      "returnDepartureDate": "2021-07-30 18:00"
+    },
+    {
+      "id": 5,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-07-18 07:30",
+      "returnDepartureDate": "2021-07-18 21:30"
+    },
+    {
+      "id": 6,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-07-20 07:30",
+      "returnDepartureDate": "2021-07-21 21:30"
+    },
+    {
+      "id": 7,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-06-22 12:30",
+      "returnDepartureDate": "2021-06-24 16:45"
+    },
+    {
+      "id": 8,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-06-22 12:30",
+      "returnDepartureDate": "2021-06-24 16:45"
+    },
+    {
+      "id": 9,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-06-22 12:30",
+      "returnDepartureDate": "2021-06-24 16:45"
+    },
+    {
+      "id": 10,
+      "cityFrom": "Warszawa",
+      "cityTo": "Lublin",
+      "departureDate": "2021-05-22 12:30",
+      "returnDepartureDate": "2021-05-24 16:45"
+    },
+    {
+      "id": 11,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-06-22 12:30",
+      "returnDepartureDate": "2021-06-24 16:45"
+    },
+    {
+      "id": 12,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-07-04 12:20",
+      "returnDepartureDate": "2021-07-04 12:40"
+    },
+    {
+      "id": 13,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-07-23 00:30",
+      "returnDepartureDate": "2021-07-24 00:02"
+    },
+    {
+      "id": 14,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-03-12 17:00",
+      "returnDepartureDate": "2021-03-14 5:00"
+    },
+    {
+      "id": 15,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-04-11 06:00",
+      "returnDepartureDate": "2021-04-12 12:00"
+    },
+    {
+      "id": 16,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-07-21 12:07",
+      "returnDepartureDate": "2021-07-22 14:33"
+    },
+    {
+      "id": 17,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-04-12 14:00",
+      "returnDepartureDate": "2021-04-13 12:00"
+    },
+    {
+      "id": 18,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-06-12 12:30",
+      "returnDepartureDate": "2021-06-15 13:15"
+    },
+    {
+      "id": 19,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-02-10 12:00",
+      "returnDepartureDate": "2021-02-12 07:00"
+    },
+    {
+      "id": 20,
+      "cityFrom": "Lublin",
+      "cityTo": "Warszawa",
+      "departureDate": "2021-02-09 12:00",
+      "returnDepartureDate": "2021-07-12 08:00"
+    }
+  ],
+  "groupedCities": [
+    {
+      "name": "Warszawa",
+      "code": "WAW"
+    },
+    {
+      "name": "Lublin",
+      "code": "LUB"
+    }
+  ]
 }

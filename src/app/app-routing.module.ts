@@ -14,13 +14,13 @@ const routes: Routes = [
     component: FlightsComponent
   },
   {
-    path: 'reservation',
+    path: 'reservation/:id',
     component: ReservationsComponent
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

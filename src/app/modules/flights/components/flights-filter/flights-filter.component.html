@@ -7,10 +7,11 @@
   <form [formGroup]="flightsFormGroup" class="form flex flex-wrap justify-content-between align-content-center">
 
     <div class="input-box">
-      <label for="cityFrom" class="input-box__label text-xs sm:text-sm  desktop-view my-2">
+      <label for="cityFrom" class="input-box__label text-xs sm:text-sm desktop-view my-2">
         Place of departure
       </label>
-      <p-dropdown [options]="cities" formControlName="cityFrom" optionLabel="name" inputId="cityFrom">
+      <p-dropdown [options]="cities" formControlName="cityFrom" optionLabel="name" inputId="cityFrom"
+        [ngClass]="{'ng-invalid ng-dirty': citiesEqual}">
       </p-dropdown>
     </div>
 
@@ -18,34 +19,39 @@
       <label for="cityTo" class="input-box__label text-xs sm:text-sm desktop-view  my-2">
         Place of arrival
       </label>
-      <p-dropdown [options]="cities" formControlName="cityTo" optionLabel="name" inputId="cityTo"></p-dropdown>
+      <p-dropdown [options]="cities" formControlName="cityTo" optionLabel="name" inputId="cityTo"
+        [ngClass]="{'ng-invalid ng-dirty': citiesEqual}">
+      </p-dropdown>
     </div>
 
     <div class="input-box">
       <label for="departureDate" class="input-box__label text-xs sm:text-sm desktop-view my-2">
         Departure date
       </label>
-      <p-calendar [showTime]="true" formControlName="departureDate" hourFormat="24" dateFormat="dd-mm-yy"
-        [touchUI]="isMobile" inputId="departureDate" appendTo="body" icon="pi pi-calendar" [showIcon]="true">
+      <p-calendar [showTime]="true" formControlName="departureDate" hourFormat="24" dateFormat="yy-mm-dd"
+        dataType="string" [touchUI]="isMobile" inputId="departureDate" appendTo="body" icon="pi pi-calendar"
+        [showIcon]="true">
       </p-calendar>
     </div>
 
     <div class="input-box">
-      <label for="dateOfReturnDeparture" class="input-box__label text-xs sm:text-sm desktop-view my-2">
+      <label for="returnDepartureDate" class="input-box__label text-xs sm:text-sm desktop-view my-2">
         Date of return departure
       </label>
-      <p-calendar [showTime]="true" formControlName="dateOfReturnDeparture" hourFormat="24" dateFormat="dd-mm-yy"
-        [touchUI]="isMobile" inputId="dateOfReturnDeparture" appendTo="body" icon="pi pi-calendar" [showIcon]="true">
+      <p-calendar [showTime]="true" formControlName="returnDepartureDate" hourFormat="24" dateFormat="yy-mm-dd"
+        dataType="string" [touchUI]="isMobile" inputId="returnDepartureDate" appendTo="body" icon="pi pi-calendar"
+        [showIcon]="true" [ngClass]="{'ng-invalid ng-dirty': isDepartureDateGreater}">
       </p-calendar>
     </div>
 
     <div class="searchbox desktop-view">
-      <button pButton type="button" label="search" class="searchbox__button button button--expand"></button>
+      <button pButton type="button" label="search" class="searchbox__button button button--expand"
+        (click)="filterList()"></button>
     </div>
 
     <div class="searchbox mobile-view">
-      <button pButton type="button" icon="pi pi-search"
-        class="searchbox__button button button--seach button--expand"></button>
+      <button pButton type="button" icon="pi pi-search" class="searchbox__button button button--seach button--expand"
+        (click)="filterList()" [disabled]="isSearchDisabled"></button>
     </div>
 
   </form>

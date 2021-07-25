@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FlightsService } from 'src/app/shared/services/flights.service';
+import { Flight } from '../../shared/models/flight';
+import { FlightsService } from '../../shared/services/flights.service';
 
 @Component({
   selector: 'app-reservations',
@@ -17,6 +19,7 @@ export class ReservationsComponent implements OnInit {
 
   constructor(
     private flightsService: FlightsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,10 +28,14 @@ export class ReservationsComponent implements OnInit {
 
   private setColumns(): void {
     this.cols = [
-      { field: 'cityFrom', header: 'place of departure' },
-      { field: 'cityTo', header: 'place of arrival' },
-      { field: 'departureDate', header: 'departure date' },
+      { field: 'cityFrom', header: 'departure city' },
+      { field: 'cityTo', header: 'arrival city' },
+      { field: 'departureDate', header: ' departure date' },
       { field: 'button' },
     ];
+  }
+
+  public navigate(flight: Flight): void {
+    this.router.navigate([`reservation/${flight.id}`]);
   }
 }

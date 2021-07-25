@@ -1,7 +1,11 @@
-import { City } from './../../../../shared/models/City';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
+
+import { FlightsService } from '../../../../shared/services/flights.service';
+import { UtilsService } from '../../../../shared/services/utils.service';
+import { City } from '../../../../shared/models/city';
+import { Flight, FlightFilters } from '../../../../shared/models/flight';
 
 
 @Component({
@@ -10,40 +14,81 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./flights-filter.component.scss', '../../../../../common-styles/shared.scss']
 })
 export class FlightsFilterComponent implements OnInit {
-  public cities: City[] = [];
+  @Input() public cities: Array<City> = [];
+
   public selectedCity: City = {} as City;
+  public flightsFormGroup: FormGroup = this.fb.group({});
 
-  flightsFormGroup: FormGroup = this.fb.group({});
-
-  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver) { }
+  constructor(
+    private fb: FormBuilder,
+    private breakpointObserver: BreakpointObserver,
+    private flightsService: FlightsService,
+    private utilsService: UtilsService
+  ) { }
 
   ngOnInit(): void {
-    this.initCitiesList();
     this.initFlightsFormGroup();
-  }
-
-  private initCitiesList(): void {
-    this.cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-    ];
   }
 
   private initFlightsFormGroup(): void {
     const currentDate: Date = new Date();
 
     this.flightsFormGroup = this.fb.group({
-      cityFrom: [''],
-      cityTo: [''],
+      cityFrom: [this.cities[0]],
+      cityTo: [this.cities[1]],
       departureDate: [currentDate],
-      dateOfReturnDeparture: [currentDate]
+      returnDepartureDate: []
     });
+  }
+
+  public filterList(): void {
+    const filters: FlightFilters = {
+      cityFrom: this.cityFrom?.value?.name,
+      cityTo: this.cityTo?.value?.name,
+      departureDate: this.departureDate?.value,
+      returnDepartureDate: this.returnDepartureDate?.value
+    }
+
+    this.getFilteredFlights(filters);
+  }
+
+  private getFilteredFlights(filters: FlightFilters): void {
+    this.flightsService.getFlights(filters)
+      .subscribe((flights: Array<Flight>) => {
+        this.flightsService.flights.next(flights);
+      });
   }
 
   public get isMobile(): boolean {
     return this.breakpointObserver.isMatched('(max-width: 768px)');
   }
+
+  public get citiesEqual(): boolean {
+    return this.cityFrom?.value?.name === this.cityTo?.value?.name;
+  }
+
+  public get isDepartureDateGreater(): boolean {
+    return this.utilsService.filterByDate(this.departureDate?.value, this.returnDepartureDate?.value)
+  }
+
+  public get isSearchDisabled(): boolean {
+    return this.citiesEqual || this.isDepartureDateGreater;
+  }
+
+  private get cityFrom(): AbstractControl | null {
+    return this.flightsFormGroup.get('cityFrom');
+  }
+
+  private get cityTo(): AbstractControl | null {
+    return this.flightsFormGroup.get('cityTo');
+  }
+
+  private get departureDate(): AbstractControl | null {
+    return this.flightsFormGroup.get('departureDate');
+  }
+
+  private get returnDepartureDate(): AbstractControl | null {
+    return this.flightsFormGroup.get('returnDepartureDate');
+  }
+
 }
