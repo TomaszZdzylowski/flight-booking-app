@@ -75,6 +75,11 @@
                 </label>
                 <p-dropdown [options]="choosenCityFrom" formControlName="cityFrom" optionLabel="name"
                     inputId="cityFrom">
+                    <ng-template let-country pTemplate="selectedItem">
+                        <span>
+                            {{country?.name}} ({{country.name | uppercase | slice:0:3 }})
+                        </span>
+                    </ng-template>
                 </p-dropdown>
             </div>
 
@@ -83,6 +88,11 @@
                     Place of arrival
                 </label>
                 <p-dropdown [options]="choosenCityTo" formControlName="cityTo" optionLabel="name" inputId="cityTo">
+                    <ng-template let-country pTemplate="selectedItem">
+                        <span>
+                            {{country?.name}} ({{country.name | uppercase | slice:0:3}})
+                        </span>
+                    </ng-template>
                 </p-dropdown>
             </div>
         </div>

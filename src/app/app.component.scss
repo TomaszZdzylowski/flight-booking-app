@@ -19,6 +19,7 @@
 
     @include media-queries.responsive(medium-devices) {
       height: auto;
+      padding-top: 2rem;
     }
   }
 

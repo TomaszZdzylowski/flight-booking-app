@@ -9,6 +9,7 @@ import { Flight } from 'src/app/shared/models/flight';
 import { City } from 'src/app/shared/models/city';
 import { TableColumn } from 'src/app/shared/models/table';
 import { flightTableColumns } from 'src/app/shared/mocks/flight-table.mock';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flights',
@@ -19,7 +20,16 @@ export class FlightsComponent implements OnInit {
   public cols: Array<TableColumn> = flightTableColumns;
 
   public cities$: Observable<Array<City>> = this.flightsService.getCities();
-  public flights$: Observable<Array<Flight>> = this.flightsService.flightsState$;
+  public flights$: Observable<Array<Flight>> = this.flightsService.flightsState$
+    .pipe(
+      map((flights: Array<Flight>) =>
+        flights.map(({ cityFrom, cityTo, ...flight }) => ({
+          ...flight,
+          cityFrom: `${cityFrom} (${cityFrom.slice(0, 3).toUpperCase()})`,
+          cityTo: `${cityTo} (${cityTo.slice(0, 3).toUpperCase()})`
+        })
+        )
+      ));
 
   constructor(
     private flightsService: FlightsService,

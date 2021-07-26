@@ -76,11 +76,11 @@ export class FlightsFilterComponent implements OnInit {
     return this.citiesEqual || this.isDepartureDateGreater;
   }
 
-  private get cityFrom(): AbstractControl | null {
+  public get cityFrom(): AbstractControl | null {
     return this.flightsFormGroup.get('cityFrom');
   }
 
-  private get cityTo(): AbstractControl | null {
+  public get cityTo(): AbstractControl | null {
     return this.flightsFormGroup.get('cityTo');
   }
 

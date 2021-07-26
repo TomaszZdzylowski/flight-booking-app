@@ -2,7 +2,7 @@
   <div class="md:mb-3" *ngIf="cities$ |  async as cities">
     <app-flights-filter [cities]="cities"></app-flights-filter>
   </div>
-  <div class="flights-main__table p-3" *ngIf="flights$ | async as flights">
+  <div class="flights-main__table px-3 pt-3" *ngIf="flights$ | async as flights">
     <app-dynamic-table [cols]="cols" [items]="flights" [theadVisible]="false" (newButtonEvent)="navigate($event)">
     </app-dynamic-table>
   </div>

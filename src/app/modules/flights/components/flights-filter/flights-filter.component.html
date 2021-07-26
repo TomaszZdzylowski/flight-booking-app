@@ -12,6 +12,16 @@
       </label>
       <p-dropdown [options]="cities" formControlName="cityFrom" optionLabel="name" inputId="cityFrom"
         [ngClass]="{'ng-invalid ng-dirty': citiesEqual}">
+        <ng-template let-country pTemplate="selectedItem">
+          <span>
+            {{country?.name}} ({{country?.code}})
+          </span>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+          <div class="country-item">
+            <span>{{country?.name}} ({{country?.code}})</span>
+          </div>
+        </ng-template>
       </p-dropdown>
     </div>
 
@@ -21,6 +31,16 @@
       </label>
       <p-dropdown [options]="cities" formControlName="cityTo" optionLabel="name" inputId="cityTo"
         [ngClass]="{'ng-invalid ng-dirty': citiesEqual}">
+        <ng-template let-country pTemplate="selectedItem">
+          <span>
+            {{country?.name}} ({{country?.code}})
+          </span>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+          <div class="country-item">
+            <span>{{country?.name}} ({{country?.code}})</span>
+          </div>
+        </ng-template>
       </p-dropdown>
     </div>
 
@@ -47,7 +67,7 @@
 
     <div class="searchbox desktop-view">
       <button pButton type="button" label="search" class="searchbox__button button button--expand"
-        (click)="filterList()"></button>
+        (click)="filterList()" [disabled]="isSearchDisabled"></button>
     </div>
 
     <div class="searchbox mobile-view">

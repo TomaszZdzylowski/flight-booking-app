@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FlightsComponent } from './modules/flights/flights.component';
-import { ReservationsComponent } from './modules/reservations/reservations.component';
+import { ReservationComponent } from './modules/reservations/reservation.component';
 import { FlightResolver } from './modules/reservations/services/flight.resolver';
 
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'reservation/:id',
-    component: ReservationsComponent,
+    component: ReservationComponent,
     resolve: { flight: FlightResolver }
   },
 ];
