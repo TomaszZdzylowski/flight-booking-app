@@ -24,7 +24,8 @@ export const menu: Array<MenuItem> = [
             },
             {
                 label: 'Reservations',
-                icon: 'pi pi-book'
+                icon: 'pi pi-book',
+                routerLink: ['/reservation/1']
             }
         ]
     }
