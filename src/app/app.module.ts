@@ -11,6 +11,8 @@ import { ReservationsModule } from './modules/reservations/reservations.module';
 
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
 import { dbConfig } from './configs/index-db.config';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CustomHttpInterceptor } from './core/services/custom-http.interceptor';
 
 
 
@@ -28,7 +30,13 @@ import { dbConfig } from './configs/index-db.config';
     FlightsModule,
     ReservationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

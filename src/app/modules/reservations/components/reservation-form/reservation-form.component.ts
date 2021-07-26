@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -9,10 +9,7 @@ import { City } from 'src/app/shared/models/city';
 import { Flight, FlightReservation } from 'src/app/shared/models/flight';
 import { flightClasses } from 'src/app/modules/reservations/mocks/flight-classes.mock';
 
-import { FlightsService } from 'src/app/shared/services/flights.service';
 import { IndexDbService } from 'src/app/shared/services/index-db.service';
-
-
 
 
 @Component({
@@ -30,9 +27,9 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private flightsService: FlightsService,
     private indexDBService: IndexDbService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
 
@@ -41,6 +38,11 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
     this.getFlight();
   }
 
+  private getFlight(): void {
+    this.route.data.subscribe((data: Data) => {
+      this.setControlValues(data.flight);
+    });
+  }
 
   private initFormGroup(): void {
     const ONE = 1;
@@ -67,13 +69,6 @@ export class ReservationFormComponent implements OnInit, OnDestroy {
         { value: '', disabled: true }
       ]
     });
-  }
-
-  private getFlight(): void {
-    this.subscription.add(this.flightsService.flightState$
-      .subscribe((flight: Flight) => {
-        this.setControlValues(flight);
-      }));
   }
 
   private setControlValues({ cityFrom = '', cityTo = '', departureDate, returnDepartureDate }: Flight): void {

@@ -1,12 +1,14 @@
-import { FlightsService } from './../../shared/services/flights.service';
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
+
+import { FlightsService } from './../../shared/services/flights.service';
+
 import { Flight } from 'src/app/shared/models/flight';
-import { flightTableColumns } from '../../shared/mocks/flight-table.mock';
 import { City } from 'src/app/shared/models/city';
 import { TableColumn } from 'src/app/shared/models/table';
+import { flightTableColumns } from 'src/app/shared/mocks/flight-table.mock';
 
 @Component({
   selector: 'app-flights',
@@ -36,11 +38,6 @@ export class FlightsComponent implements OnInit {
   }
 
   public navigate(flight: Flight): void {
-    this.sendData(flight);
     this.router.navigate([`reservation/${flight.id}`])
-  }
-
-  private sendData(flight: Flight): void {
-    this.flightsService.flight.next(flight);
   }
 }

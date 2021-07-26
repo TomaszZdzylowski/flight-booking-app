@@ -24,12 +24,7 @@ export class ReservationsComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  private sendData(flight: Flight): void {
-    this.flightsService.flight.next(flight);
-  }
-
   public navigate(flight: Flight): void {
-    this.sendData(flight);
-    this.router.navigate([`reservation/${flight.id}`]);
+    this.router.navigate([`reservation/${flight.id}`]);;
   }
 }

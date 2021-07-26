@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { UtilsService } from './utils.service';
+
 import { City } from '../models/city';
 import { Flight, FlightFilters } from '../models/flight';
-import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlightsService {
-
   private baseUrl: string = 'http://localhost:3000';
-
-  public flight: BehaviorSubject<Flight> = new BehaviorSubject<Flight>({} as any);
-  public flightState$: Observable<Flight> = this.flight.asObservable();
 
   public flights: BehaviorSubject<Array<Flight>> = new BehaviorSubject<Array<Flight>>([]);
   public flightsState$: Observable<Array<Flight>> = this.flights.asObservable();
@@ -31,6 +30,10 @@ export class FlightsService {
           return this.utilsService.filter(flights, filters);
         })
       )
+  }
+
+  public getFlightById(id: number): Observable<Flight> {
+    return this.http.get<Flight>(`${this.baseUrl}/flights/${id}`);
   }
 
   public getCities(): Observable<Array<City>> {

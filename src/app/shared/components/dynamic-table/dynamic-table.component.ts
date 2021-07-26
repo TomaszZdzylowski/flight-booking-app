@@ -16,7 +16,7 @@ export class DynamicTableComponent implements OnInit {
   @Output() public newButtonEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
   ) { }
 
   ngOnInit(): void { }
